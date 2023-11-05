@@ -3,7 +3,7 @@ package models;
 import java.math.BigDecimal;
 
 /*
- * Represents a DTO, models the http request body
+ * Represents a DTO (data transfer object), models the http request body
  */
 public class TransferRequest {
 
