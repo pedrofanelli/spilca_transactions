@@ -2,6 +2,7 @@ package service;
 
 import java.math.BigDecimal;
 import java.sql.SQLException;
+import java.util.List;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -31,5 +32,9 @@ public class TransferService {
 		repo.changeAmount(idSender, senderNewAmount);
 		repo.changeAmount(idReceiver, receiverNewAmount);
 		
+	}
+	
+	public List<Account> getAllAccounts() {
+		return repo.findAllAccounts();
 	}
 }
