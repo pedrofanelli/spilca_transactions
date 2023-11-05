@@ -19,7 +19,15 @@ public class TransferService {
 		this.repo = repo;
 	}
 	
-	@Transactional(rollbackFor=SQLException.class)
+	
+	/*
+	 * Las transacciones en Spring toman toda runtimeException, pero NO checkedException.
+	 * Las checked son las de compilación, que normalmente se declaran y se hacen throw o en try/catch.
+	 * Si uno quisiera hacer rollback también en esos casos debemos declararlo expresamente como hicimos con SQLExceptions.
+	 * Además, el método debe lanzarlo!
+	 * Si no lo agregamos a la notation, no funciona el rollback.
+	 */
+	@Transactional(rollbackFor= {SQLException.class,Exception.class})
 	public void transferMoney(long idSender, long idReceiver, BigDecimal amount) throws SQLException {
 
 		Account sender = repo.findAccountById(idSender);

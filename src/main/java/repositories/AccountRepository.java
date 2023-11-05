@@ -32,7 +32,7 @@ public class AccountRepository {
 		
 		jdbc.update(sql,amount,id);
 		
-		throw new SQLException("PROBANDO CHECKED EXCEPTIONS post update");
+		//throw new SQLException("PROBANDO CHECKED EXCEPTIONS post update");
 		
 	}
 	
