@@ -22,7 +22,7 @@ public class AccountController {
 	
 	@PostMapping("/transfer")
 	public void transferMoney(@RequestBody TransferRequest request) {
-		
+
 		service.transferMoney(request.getSenderId(), request.getReceiverId(), request.getAmount());
 		
 	}

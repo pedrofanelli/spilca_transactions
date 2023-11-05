@@ -18,7 +18,7 @@ public class AccountRepository {
 	}
 	
 	public Account findAccountById(long id) {
-		
+
 		String sql = "SELECT * FROM account WHERE id = ?";
 		
 		return jdbc.queryForObject(sql, new AccountRowMapper(), id);

@@ -11,6 +11,12 @@ public class TransferRequest {
 	private long receiverAccountId;
 	private BigDecimal amount;
 	
+	public TransferRequest(long senderAccountId, long receiverAccountId, BigDecimal amount) {
+		this.senderAccountId = senderAccountId;
+		this.receiverAccountId = receiverAccountId;
+		this.amount = amount;
+	}
+	
 	public long getSenderId() {
 		return this.senderAccountId;
 	}

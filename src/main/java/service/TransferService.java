@@ -21,9 +21,8 @@ public class TransferService {
 	
 	@Transactional(rollbackFor=SQLException.class)
 	public void transferMoney(long idSender, long idReceiver, BigDecimal amount) {
-		
+
 		Account sender = repo.findAccountById(idSender);
-		
 		Account receiver = repo.findAccountById(idReceiver);
 		
 		BigDecimal senderNewAmount = sender.getAmount().subtract(amount);
