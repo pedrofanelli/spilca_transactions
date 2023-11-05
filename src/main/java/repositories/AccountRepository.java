@@ -1,6 +1,7 @@
 package repositories;
 
 import java.math.BigDecimal;
+import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -25,11 +26,13 @@ public class AccountRepository {
 		
 	}
 	
-	public void changeAmount(long id, BigDecimal amount) {
+	public void changeAmount(long id, BigDecimal amount) throws SQLException {
 		
 		String sql = "UPDATE account SET amount = ? WHERE id = ?";
 		
 		jdbc.update(sql,amount,id);
+		
+		throw new SQLException("PROBANDO CHECKED EXCEPTIONS post update");
 		
 	}
 	

@@ -1,5 +1,6 @@
 package controllers;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,7 +22,7 @@ public class AccountController {
 	}
 	
 	@PostMapping("/transfer")
-	public void transferMoney(@RequestBody TransferRequest request) {
+	public void transferMoney(@RequestBody TransferRequest request) throws SQLException {
 
 		service.transferMoney(request.getSenderId(), request.getReceiverId(), request.getAmount());
 		

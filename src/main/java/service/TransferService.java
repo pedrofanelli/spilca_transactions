@@ -20,7 +20,7 @@ public class TransferService {
 	}
 	
 	@Transactional(rollbackFor=SQLException.class)
-	public void transferMoney(long idSender, long idReceiver, BigDecimal amount) {
+	public void transferMoney(long idSender, long idReceiver, BigDecimal amount) throws SQLException {
 
 		Account sender = repo.findAccountById(idSender);
 		Account receiver = repo.findAccountById(idReceiver);
@@ -30,6 +30,8 @@ public class TransferService {
 		
 		repo.changeAmount(idSender, senderNewAmount);
 		repo.changeAmount(idReceiver, receiverNewAmount);
+		
+		//throw new RuntimeException("OH NO! UNA RUNTIME EXCEPTION! ROLLBACK!!!");
 		
 	}
 	
